@@ -13,6 +13,7 @@
 		466D54C11E72BA0D0075B44B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466D54BF1E72BA0D0075B44B /* Main.storyboard */; };
 		466D54C31E72BA0D0075B44B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466D54C21E72BA0D0075B44B /* Assets.xcassets */; };
 		466D54C61E72BA0D0075B44B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 466D54C41E72BA0D0075B44B /* LaunchScreen.storyboard */; };
+		7F63223D60E96F352E1A68E9 /* libPods-NetNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA73BFAF118B37AEE8EDB9A4 /* libPods-NetNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		466D54C21E72BA0D0075B44B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		466D54C51E72BA0D0075B44B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		466D54C71E72BA0D0075B44B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1BB4E7F74AA7A0A3511C47F /* Pods-NetNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetNews/Pods-NetNews.debug.xcconfig"; sourceTree = "<group>"; };
+		AA73BFAF118B37AEE8EDB9A4 /* libPods-NetNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NetNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72010648B9A8AE6774A375F /* Pods-NetNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetNews/Pods-NetNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F63223D60E96F352E1A68E9 /* libPods-NetNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				466D54B51E72BA0D0075B44B /* NetNews */,
 				466D54B41E72BA0D0075B44B /* Products */,
+				595D63085D54E944011D922B /* Pods */,
+				BD59A148CF85AE25EA1BC7D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		595D63085D54E944011D922B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1BB4E7F74AA7A0A3511C47F /* Pods-NetNews.debug.xcconfig */,
+				C72010648B9A8AE6774A375F /* Pods-NetNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD59A148CF85AE25EA1BC7D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA73BFAF118B37AEE8EDB9A4 /* libPods-NetNews.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 466D54CA1E72BA0D0075B44B /* Build configuration list for PBXNativeTarget "NetNews" */;
 			buildPhases = (
+				FC3D1B20DB33D1F8FFFFACF4 /* [CP] Check Pods Manifest.lock */,
 				466D54AF1E72BA0D0075B44B /* Sources */,
 				466D54B01E72BA0D0075B44B /* Frameworks */,
 				466D54B11E72BA0D0075B44B /* Resources */,
+				017D6BA629A3456D3F58E453 /* [CP] Embed Pods Frameworks */,
+				301CFC1793A8D0AB1B4E430E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		017D6BA629A3456D3F58E453 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetNews/Pods-NetNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		301CFC1793A8D0AB1B4E430E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NetNews/Pods-NetNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC3D1B20DB33D1F8FFFFACF4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		466D54AF1E72BA0D0075B44B /* Sources */ = {
@@ -268,9 +343,11 @@
 		};
 		466D54CB1E72BA0D0075B44B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1BB4E7F74AA7A0A3511C47F /* Pods-NetNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NetNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yuanfei.NetNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -279,9 +356,11 @@
 		};
 		466D54CC1E72BA0D0075B44B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C72010648B9A8AE6774A375F /* Pods-NetNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NetNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Yuanfei.NetNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,6 +386,7 @@
 				466D54CC1E72BA0D0075B44B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
