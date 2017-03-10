@@ -11,4 +11,5 @@ target 'NetNews' do
   pod 'AFNetworking'
   pod 'YYModel'
   pod 'SDWebImage'
+  pod 'Masonry'
 end

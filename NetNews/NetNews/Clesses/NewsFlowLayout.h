@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NewsFlowLayout.h
 //  NetNews
 //
 //  Created by 袁飞 on 2017/3/10.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface NewsFlowLayout : UICollectionViewFlowLayout
 
 @end
-
