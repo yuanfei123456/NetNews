@@ -10,4 +10,7 @@
 
 @interface ChannelScrollView : UIScrollView
 
+    
+@property (nonatomic, strong) NSArray *channelArray;
+
 @end

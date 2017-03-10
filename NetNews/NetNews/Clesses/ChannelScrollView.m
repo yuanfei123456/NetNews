@@ -7,15 +7,52 @@
 //
 
 #import "ChannelScrollView.h"
+#import "ChannelModel.h"
 
 @implementation ChannelScrollView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+    
+    
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
 }
-*/
+    
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self setupUI];
+}
+    
+- (void)setupUI {
+    
+    self.showsVerticalScrollIndicator = NO;
+    self.showsHorizontalScrollIndicator = NO;
+    self.bounces = NO;
+}
+
+- (void)setChannelArray:(NSArray *)channelArray {
+    _channelArray = channelArray;
+    
+    channelArray = [channelArray sortedArrayUsingComparator:^NSComparisonResult(ChannelModel *obj1, ChannelModel *obj2) {
+        
+        return [obj1.tid compare:obj2.tid];
+    }];
+    
+    for (NSInteger i = 0; i < channelArray.count; i++) {
+        
+        ChannelModel *model = channelArray[i];
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.frame = CGRectMake(i * 80, 0, 80, 44);
+        label.text = model.tname;
+        label.textAlignment = NSTextAlignmentCenter;
+        
+        [self addSubview:label];
+        
+    }
+
+}
 
 @end

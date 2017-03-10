@@ -11,12 +11,16 @@
 #import "Masonry.h"
 #import "NewsCollectionView.h"
 #import "NewsFlowLayout.h"
+#import <YYModel.h>
+#import "ChannelModel.h"
 
 static NSString *cellId = @"newsID";
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) ChannelScrollView *channelView;
 @property (nonatomic, strong) NewsCollectionView *newsView;
+
+@property (nonatomic, strong) NSArray<ChannelModel *> *channelArray;
     
 @end
 
@@ -27,6 +31,7 @@ static NSString *cellId = @"newsID";
     
     [self setupUI];
     
+    [self loadJson];
 }
 
 #pragma mark - 1.搭建界面
@@ -49,10 +54,9 @@ static NSString *cellId = @"newsID";
         make.top.equalTo(self.channelView.mas_bottom);
         make.left.right.bottom.offset(0);
     }];
-  
 }
     
-#pragma mark - 2.数据源方法
+#pragma mark - 2.NewsView数据源方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 10;
 }
@@ -64,11 +68,21 @@ static NSString *cellId = @"newsID";
 
 }
     
+#pragma mark - 3.解析本地JSON数据
+- (void)loadJson {
+    self.channelArray = [ChannelModel getChannelArray];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.channelView.contentSize = CGSizeMake(self.channelArray.count * 80, 0);
+    
+    self.channelView.channelArray = self.channelArray;
+    
+}
 #pragma mark - 0.懒加载
 - (ChannelScrollView *)channelView {
     if (!_channelView) {
         _channelView = [[ChannelScrollView alloc] init];
-        _channelView.backgroundColor = [UIColor redColor];
+        
+        _channelView.backgroundColor = [UIColor groupTableViewBackgroundColor];
         
     }
     return _channelView;
