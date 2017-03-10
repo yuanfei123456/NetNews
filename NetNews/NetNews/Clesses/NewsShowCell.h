@@ -1,15 +1,13 @@
 //
-//  NewsCollectionView.m
+//  NewsShowCell.h
 //  NetNews
 //
 //  Created by 袁飞 on 2017/3/10.
 //  Copyright © 2017年 Yuanfei. All rights reserved.
 //
 
-#import "NewsCollectionView.h"
+#import <UIKit/UIKit.h>
 
-@implementation NewsCollectionView
-
-
+@interface NewsShowCell : UITableViewCell
 
 @end

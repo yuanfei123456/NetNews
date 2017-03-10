@@ -13,6 +13,7 @@
 #import "NewsFlowLayout.h"
 #import <YYModel.h>
 #import "ChannelModel.h"
+#import "NewsCollectionCell.h"
 
 static NSString *cellId = @"newsID";
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -58,11 +59,13 @@ static NSString *cellId = @"newsID";
     
 #pragma mark - 2.NewsView数据源方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.channelArray.count;
 }
-    
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    NewsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    
+    
     
     return cell;
 
@@ -83,7 +86,6 @@ static NSString *cellId = @"newsID";
         _channelView = [[ChannelScrollView alloc] init];
         
         _channelView.backgroundColor = [UIColor groupTableViewBackgroundColor];
-        
     }
     return _channelView;
 }
@@ -95,8 +97,12 @@ static NSString *cellId = @"newsID";
         _newsView = [[NewsCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _newsView.dataSource = self;
         _newsView.delegate = self;
-        _newsView.backgroundColor = [UIColor orangeColor];
-        [_newsView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellId];
+        _newsView.backgroundColor = [UIColor whiteColor];
+        _newsView.showsHorizontalScrollIndicator = NO;
+        _newsView.showsVerticalScrollIndicator = NO;
+        _newsView.bounces = NO;
+        _newsView.pagingEnabled = YES;
+        [_newsView registerClass:[NewsCollectionCell class] forCellWithReuseIdentifier:cellId];
     }
     return _newsView;
 }
