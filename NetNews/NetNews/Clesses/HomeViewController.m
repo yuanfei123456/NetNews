@@ -65,6 +65,8 @@ static NSString *cellId = @"newsID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NewsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
+
+    
     NSString *urlStr = [NSString stringWithFormat:@"%@/0-20.html", self.channelArray[indexPath.row].tid];
     
     cell.urlStr = urlStr;
@@ -76,6 +78,13 @@ static NSString *cellId = @"newsID";
 #pragma mark - 3.解析本地JSON数据
 - (void)loadJson {
     self.channelArray = [ChannelModel getChannelArray];
+    
+    
+    self.channelArray = [self.channelArray sortedArrayUsingComparator:^NSComparisonResult(ChannelModel *obj1, ChannelModel *obj2) {
+        
+        return [obj1.tid compare:obj2.tid];
+    }];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.channelView.contentSize = CGSizeMake(self.channelArray.count * 80, 0);
     

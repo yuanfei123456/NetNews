@@ -35,11 +35,7 @@
 - (void)setChannelArray:(NSArray *)channelArray {
     _channelArray = channelArray;
     
-    channelArray = [channelArray sortedArrayUsingComparator:^NSComparisonResult(ChannelModel *obj1, ChannelModel *obj2) {
-        
-        return [obj1.tid compare:obj2.tid];
-    }];
-    
+  
     for (NSInteger i = 0; i < channelArray.count; i++) {
         
         ChannelModel *model = channelArray[i];
