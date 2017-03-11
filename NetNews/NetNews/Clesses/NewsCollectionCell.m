@@ -9,6 +9,12 @@
 #import "NewsCollectionCell.h"
 #import "NewsShowTableViewController.h"
 
+@interface NewsCollectionCell ()
+
+@property (nonatomic, strong)  NewsShowTableViewController*showVc;
+    
+@end
+
 @implementation NewsCollectionCell
     
 - (instancetype)initWithFrame:(CGRect)frame
@@ -33,10 +39,15 @@
     showVc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
     
     [self.contentView addSubview:showVc.view];
-
+    self.showVc = showVc;
     
 }
 
+- (void)setUrlStr:(NSString *)urlStr {
+    _urlStr = urlStr;
+    self.showVc.urlStr = urlStr;
+
+}
 
     
 @end

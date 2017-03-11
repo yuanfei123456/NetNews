@@ -10,6 +10,9 @@
 
 @implementation NewsCollectionView
 
+- (void)setUrlStr:(NSString *)urlStr {
 
+
+}
 
 @end

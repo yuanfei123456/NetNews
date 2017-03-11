@@ -65,7 +65,9 @@ static NSString *cellId = @"newsID";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NewsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
+    NSString *urlStr = [NSString stringWithFormat:@"%@/0-20.html", self.channelArray[indexPath.row].tid];
     
+    cell.urlStr = urlStr;
     
     return cell;
 
@@ -79,6 +81,7 @@ static NSString *cellId = @"newsID";
     
     self.channelView.channelArray = self.channelArray;
     
+  
 }
 #pragma mark - 0.懒加载
 - (ChannelScrollView *)channelView {

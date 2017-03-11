@@ -10,4 +10,6 @@
 
 @interface NewsCollectionView : UICollectionView
 
+
+    
 @end
