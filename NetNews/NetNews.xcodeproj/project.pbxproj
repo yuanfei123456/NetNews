@@ -11,6 +11,7 @@
 		46591CEE1E741D65004C7402 /* BIgImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46591CED1E741D65004C7402 /* BIgImageCell.xib */; };
 		46591CF51E7424A3004C7402 /* imagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46591CF41E7424A3004C7402 /* imagesCell.xib */; };
 		46591CFB1E74261E004C7402 /* ImagesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46591CFA1E74261E004C7402 /* ImagesModel.m */; };
+		46591CFE1E742C48004C7402 /* ChannelLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46591CFD1E742C48004C7402 /* ChannelLabel.m */; };
 		466D54B81E72BA0D0075B44B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 466D54B71E72BA0D0075B44B /* main.m */; };
 		466D54BB1E72BA0D0075B44B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 466D54BA1E72BA0D0075B44B /* AppDelegate.m */; };
 		466D54C31E72BA0D0075B44B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466D54C21E72BA0D0075B44B /* Assets.xcassets */; };
@@ -36,6 +37,8 @@
 		46591CF41E7424A3004C7402 /* imagesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imagesCell.xib; sourceTree = "<group>"; };
 		46591CF91E74261E004C7402 /* ImagesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagesModel.h; path = ../Controller/ImagesModel.h; sourceTree = "<group>"; };
 		46591CFA1E74261E004C7402 /* ImagesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagesModel.m; path = ../Controller/ImagesModel.m; sourceTree = "<group>"; };
+		46591CFC1E742C48004C7402 /* ChannelLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelLabel.h; sourceTree = "<group>"; };
+		46591CFD1E742C48004C7402 /* ChannelLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelLabel.m; sourceTree = "<group>"; };
 		466D54B31E72BA0D0075B44B /* NetNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		466D54B71E72BA0D0075B44B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		466D54B91E72BA0D0075B44B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -238,10 +241,12 @@
 			children = (
 				466D54E01E72C2EE0075B44B /* ChannelScrollView.h */,
 				466D54E11E72C2EE0075B44B /* ChannelScrollView.m */,
-				466D56F71E72D8660075B44B /* NewsCollectionCell.h */,
-				466D56F81E72D8660075B44B /* NewsCollectionCell.m */,
+				46591CFC1E742C48004C7402 /* ChannelLabel.h */,
+				46591CFD1E742C48004C7402 /* ChannelLabel.m */,
 				466D56EC1E72C4670075B44B /* NewsCollectionView.h */,
 				466D56ED1E72C4670075B44B /* NewsCollectionView.m */,
+				466D56F71E72D8660075B44B /* NewsCollectionCell.h */,
+				466D56F81E72D8660075B44B /* NewsCollectionCell.m */,
 				466D56EF1E72C7890075B44B /* NewsFlowLayout.h */,
 				466D56F01E72C7890075B44B /* NewsFlowLayout.m */,
 				466D56FD1E72DC310075B44B /* NewsShowCell.h */,
@@ -408,6 +413,7 @@
 				466D54D71E72C12D0075B44B /* MyNavigationController.m in Sources */,
 				466D54BB1E72BA0D0075B44B /* AppDelegate.m in Sources */,
 				466D56F91E72D8660075B44B /* NewsCollectionCell.m in Sources */,
+				46591CFE1E742C48004C7402 /* ChannelLabel.m in Sources */,
 				466D56FC1E72DA130075B44B /* NewsShowTableViewController.m in Sources */,
 				466D54B81E72BA0D0075B44B /* main.m in Sources */,
 				466D56F61E72CB960075B44B /* ChannelModel.m in Sources */,
