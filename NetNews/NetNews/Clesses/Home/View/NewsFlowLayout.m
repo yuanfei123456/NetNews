@@ -11,6 +11,7 @@
 @implementation NewsFlowLayout
 
 - (void)prepareLayout {
+    
     self.itemSize = CGSizeMake(self.collectionView.frame.size.width, self.collectionView.frame.size.height);
     
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;

@@ -30,19 +30,20 @@
     [super awakeFromNib];
     [self setupUI];
 }
-    
+
+//每个Cell上添加TableViewController的View
 - (void)setupUI {
     
     NewsShowTableViewController *showVc = [[NewsShowTableViewController alloc] init];
     showVc.view.frame = self.bounds;
     
-    showVc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
+//    showVc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(256) / 255.0 green:arc4random_uniform(256) / 255.0 blue:arc4random_uniform(256) / 255.0 alpha:1];
     
     [self.contentView addSubview:showVc.view];
     self.showVc = showVc;
-    
 }
 
+//接受从控制器传过来的urlStr 并传递给showVc
 - (void)setUrlStr:(NSString *)urlStr {
     _urlStr = urlStr;
     self.showVc.urlStr = urlStr;

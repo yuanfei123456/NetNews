@@ -46,7 +46,7 @@ static NSString *cellId = @"newsID";
     [self.channelView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.offset(0);
         make.height.offset(44);
-        make.top.offset(64);
+        make.top.offset(0);
     }];
     
     [self.view addSubview:self.newsView];
@@ -55,6 +55,25 @@ static NSString *cellId = @"newsID";
         make.top.equalTo(self.channelView.mas_bottom);
         make.left.right.bottom.offset(0);
     }];
+    
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.channelView setTagBlock:^(int tag) {
+        
+//        weakSelf.newsView.contentOffset = CGPointMake(tag * self.view.frame.size.width, 0);
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tag inSection:0];
+        
+        [weakSelf.newsView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    }];
+}
+
+#pragma mark - 4.滑动结束
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    NSInteger index = scrollView.contentOffset.x / self.newsView.frame.size.width;
+    self.channelView.index = (int)index;
 }
     
 #pragma mark - 2.NewsView数据源方法
@@ -64,22 +83,19 @@ static NSString *cellId = @"newsID";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     NewsCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    
-
-    
+    //拼接Url并传递给Cell
     NSString *urlStr = [NSString stringWithFormat:@"%@/0-20.html", self.channelArray[indexPath.row].tid];
     
     cell.urlStr = urlStr;
     
     return cell;
-
 }
     
 #pragma mark - 3.解析本地JSON数据
 - (void)loadJson {
     self.channelArray = [ChannelModel getChannelArray];
     
-    
+    //对数组进行排列
     self.channelArray = [self.channelArray sortedArrayUsingComparator:^NSComparisonResult(ChannelModel *obj1, ChannelModel *obj2) {
         
         return [obj1.tid compare:obj2.tid];
@@ -89,15 +105,15 @@ static NSString *cellId = @"newsID";
     self.channelView.contentSize = CGSizeMake(self.channelArray.count * 80, 0);
     
     self.channelView.channelArray = self.channelArray;
-    
-  
 }
+
 #pragma mark - 0.懒加载
 - (ChannelScrollView *)channelView {
     if (!_channelView) {
         _channelView = [[ChannelScrollView alloc] init];
         
         _channelView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+        
     }
     return _channelView;
 }

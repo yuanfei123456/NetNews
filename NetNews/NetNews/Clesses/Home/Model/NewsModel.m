@@ -9,6 +9,7 @@
 #import "NewsModel.h"
 #import "NetworkTools.h"
 #import <YYModel.h>
+#import "ImagesModel.h"
 
 @implementation NewsModel
 
@@ -27,8 +28,10 @@
     } andFailure:^(NSError *error) {
         
     }];
-
-    
 }
-    
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"imgextra" : [ImagesModel class]};
+}
+
 @end

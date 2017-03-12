@@ -13,4 +13,8 @@
     
 @property (nonatomic, strong) NSArray *channelArray;
 
+@property (nonatomic , copy) void(^tagBlock)(int tag);
+
+@property (nonatomic, assign) int index;
+
 @end
