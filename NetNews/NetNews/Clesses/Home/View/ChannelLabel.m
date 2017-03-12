@@ -10,12 +10,14 @@
 
 @implementation ChannelLabel
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setScalePresent:(CGFloat)scalePresent {
+    _scalePresent = scalePresent;
+    
+    self.textColor = [UIColor colorWithRed:scalePresent green:0 blue:0 alpha:1];
+    
+    CGFloat currentPresent = 1 + scalePresent *0.3;
+    self.transform = CGAffineTransformMakeScale(currentPresent, currentPresent);
+
 }
-*/
 
 @end

@@ -17,4 +17,6 @@
 
 @property (nonatomic, assign) int index;
 
+@property (nonatomic, strong) NSMutableArray *channelLabelArray;
+
 @end

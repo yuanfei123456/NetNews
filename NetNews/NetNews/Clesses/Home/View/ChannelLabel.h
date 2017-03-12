@@ -10,5 +10,7 @@
 
 @interface ChannelLabel : UILabel
 
+@property (nonatomic , assign) CGFloat scalePresent;
+
 
 @end

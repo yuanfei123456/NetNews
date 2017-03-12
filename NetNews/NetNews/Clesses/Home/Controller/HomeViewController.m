@@ -14,6 +14,7 @@
 #import <YYModel.h>
 #import "ChannelModel.h"
 #import "NewsCollectionCell.h"
+#import "ChannelLabel.h"
 
 static NSString *cellId = @"newsID";
 @interface HomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
@@ -22,6 +23,8 @@ static NSString *cellId = @"newsID";
 @property (nonatomic, strong) NewsCollectionView *newsView;
 
 @property (nonatomic, strong) NSArray<ChannelModel *> *channelArray;
+
+@property (nonatomic, strong) NSArray *channelLabelArray;
     
 @end
 
@@ -49,6 +52,7 @@ static NSString *cellId = @"newsID";
         make.top.offset(0);
     }];
     
+    
     [self.view addSubview:self.newsView];
     
     [self.newsView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,7 +79,32 @@ static NSString *cellId = @"newsID";
     NSInteger index = scrollView.contentOffset.x / self.newsView.frame.size.width;
     self.channelView.index = (int)index;
 }
+
+#pragma mark - 5.滑动中
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
+    CGFloat floatIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    int intIndex = scrollView.contentOffset.x / scrollView.frame.size.width;
+    //缩放百分比
+    CGFloat precent = floatIndex - intIndex;
+    //左边的的缩放百分比
+    CGFloat leftPresent = 1 - precent;
+    //右边的缩放百分比
+    CGFloat rightPresent = precent;
+    
+    int leftIndex = intIndex;
+    int rightIndex = intIndex + 1;
+    
+    self.channelLabelArray = self.channelView.channelLabelArray;
+    ChannelLabel *leftLabel = self.channelLabelArray[leftIndex];
+    leftLabel.scalePresent = leftPresent;
+    
+    if (rightIndex < self.channelLabelArray.count) {
+        ChannelLabel *rightLabel = self.channelLabelArray[rightIndex];
+        rightLabel.scalePresent = rightPresent;
+    }
+}
+
 #pragma mark - 2.NewsView数据源方法
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.channelArray.count;
@@ -134,5 +163,11 @@ static NSString *cellId = @"newsID";
     }
     return _newsView;
 }
-    
+
+//- (NSArray *)channelLabelArray {
+//    if (!_channelLabelArray) {
+//        _channelLabelArray = [NSArray array];
+//    }
+//    return _channelLabelArray;
+//}
 @end

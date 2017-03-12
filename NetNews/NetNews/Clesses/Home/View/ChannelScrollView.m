@@ -13,7 +13,7 @@
 
 @interface ChannelScrollView ()
 
-@property (nonatomic, strong) NSMutableArray *channelLabelArray;
+
 
 @end
 
@@ -62,6 +62,10 @@
         [label addGestureRecognizer:tapGesture];
         
         [self.channelLabelArray addObject:label];
+        //设置第一个label的缩放比
+        if (i == 0) {
+            label.scalePresent = 1;
+        }
     }
 }
 
