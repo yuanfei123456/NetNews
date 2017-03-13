@@ -50,10 +50,11 @@
         
         ChannelLabel *label = [[ChannelLabel alloc] init];
         label.frame = CGRectMake(i * 80, 0, 80, 44);
-//        label.text = model.tname; /
-        label.text = [NSString stringWithFormat:@"%d", i];
+        label.text = model.tname; 
+//        label.text = [NSString stringWithFormat:@"%d", i];
         label.textAlignment = NSTextAlignmentCenter;
         
+        label.font = [UIFont systemFontOfSize:14];
         label.tag = i;
         label.userInteractionEnabled = YES;
         [self addSubview:label];
@@ -79,6 +80,15 @@
     }
     
     [self scrollChannelLabel:label];
+    
+    for (ChannelLabel *label in self.channelLabelArray) {
+        
+        if (label == (ChannelLabel *)gesture.view) {
+            label.scalePresent = 1;
+        } else {
+            label.scalePresent = 0;
+        }
+    }
 }
 
 - (void)setIndex:(int)index {
@@ -106,7 +116,6 @@
     }
     
     self.contentOffset = CGPointMake(contentOffSectX, 0);
-    
 }
 
 - (NSMutableArray *)channelLabelArray {

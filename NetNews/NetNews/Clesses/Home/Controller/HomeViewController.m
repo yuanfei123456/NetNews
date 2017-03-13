@@ -65,11 +65,11 @@ static NSString *cellId = @"newsID";
     
     [self.channelView setTagBlock:^(int tag) {
         
-//        weakSelf.newsView.contentOffset = CGPointMake(tag * self.view.frame.size.width, 0);
+        weakSelf.newsView.contentOffset = CGPointMake(tag * self.view.frame.size.width, 0);
         
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tag inSection:0];
-        
-        [weakSelf.newsView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+//        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:tag inSection:0];
+//        
+//        [weakSelf.newsView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
     }];
 }
 
